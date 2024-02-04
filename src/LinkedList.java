@@ -44,6 +44,42 @@ public class LinkedList {
         this.head = currentNode.next;
     }
 
+    public void removeLast() {
+        int count = 0;
+        Node currentNode = head;
+        Node newLast = head;
+
+        if (head != null) {
+            while (currentNode.next != null) {
+                currentNode = currentNode.next;
+                count++;
+            }
+
+            for (int i = 0; i < count; i++) {
+                newLast = newLast.next;
+            }
+            newLast.setNext(null);
+        } else {
+            System.out.println("This LinkedList doesnt have any nodes yet");;
+        }
+
+    }
+
+    public void removeAtIndex(int index) {
+        Node currentNode = head;
+
+        while (currentNode.next != null) {
+            for (int i = 0; i < index - 1; i++) {
+                currentNode = currentNode.next;
+            }
+
+            currentNode.next = currentNode.next.next;
+
+        }
+    }
+
+
+
 
     
 }
